@@ -7,102 +7,110 @@
     <title>Document</title>
     <style>
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
 
-body {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    color: #fff;
-}
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-div {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    padding: 25px;
-    margin: 15px;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 280px;
-    transition: 0.3s ease;
-}
+        .container-all {
+            display: flex;
+            flex-direction: column;
+            /* mobil üçün alt-alta */
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
 
-div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
+        .container-all div {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: 0.3s ease;
+        }
 
-h1 {
-    font-size: 1.3em;
-    margin-bottom: 15px;
-    color: #fff;
-}
+        .container-all div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
 
-input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    margin-bottom: 15px;
-    font-size: 1em;
-    text-align: center;
-}
+        h1 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #fff;
+        }
 
-button {
-    background: #ff6a00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            margin-bottom: 15px;
+            font-size: 1em;
+            text-align: center;
+        }
 
-button:hover {
-    background: #ff9100;
-}
+        button {
+            background: #ff6a00;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
 
-h2 {
-    margin-top: 15px;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #ffdf5d;
-}
+        button:hover {
+            background: #ff9100;
+        }
 
+        h2 {
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #ffdf5d;
+        }
     </style>
 </head>
 
 <body>
-    <div>
-        <h1>Cut ve tek eded</h1>
-        <input type="text" id="cut">
-        <button onclick="cuttek()">yoxla</button>
-        <h2 id="ch2"></h2>
-    </div>
+    <div class="container-all">
+        <div>
+            <h1>Cut ve tek eded</h1>
+            <input type="text" id="cut">
+            <button onclick="cuttek()">yoxla</button>
+            <h2 id="ch2"></h2>
+        </div>
 
-    <div>
-        <h1>Yas yixlama</h1>
-        <input type="text" id="yas">
-        <button onclick="yasyoxla()">yoxla</button>
-        <h2 id="yash2"></h2>
-    </div>
+        <div>
+            <h1>Yas yoxlama</h1>
+            <input type="text" id="yas">
+            <button onclick="yasyoxla()">yoxla</button>
+            <h2 id="yash2"></h2>
+        </div>
 
-    <div>
-        <h1>Qiymet sistemi</h1>
-        <input type="text" id="exch">
-         <button onclick="balyoxla()">yoxla</button>
-       <h2 id="bal"></h2>
+        <div>
+            <h1>Qiymet sistemi</h1>
+            <input type="text" id="exch">
+            <button onclick="balyoxla()">yoxla</button>
+            <h2 id="bal"></h2>
+        </div>
     </div>
 
     <script>
@@ -121,35 +129,35 @@ h2 {
             }
         }
 
-        function yasyoxla(){
-            if(yas.value <=12){
+        function yasyoxla() {
+            if (yas.value <= 12) {
                 yash2.innerHTML = ` siz usaqsiz `
-            }else if(yas.value >=13 && yas.value <40 ){
+            } else if (yas.value >= 13 && yas.value < 40) {
                 yash2.innerHTML = `siz gencsiz `
-            }else if (yas.value >=40 && yas.value<65){
+            } else if (yas.value >= 40 && yas.value < 65) {
                 yash2.innerHTML = `siz yetiskin insansiz  `
-            }else{
-                yash2.innerHTML= `siz yaslisiz `
+            } else {
+                yash2.innerHTML = `siz yaslisiz `
             }
         }
 
-        function balyoxla(){
-            if(exch.value > 100){
+        function balyoxla() {
+            if (exch.value > 100) {
                 bal.innerHTML = `100-dən yuxarı bal ola bilməz!`
             }
-            else if(exch.value <51){
+            else if (exch.value < 51) {
                 bal.innerHTML = `Siz kəsildiniz `
-            }else if (exch.value >= 51 && exch.value<=71 ){
+            } else if (exch.value >= 51 && exch.value <= 71) {
                 bal.innerHTML = `Siz D aldınız`
-            }else if (exch.value >=72 && exch.value <=81){
+            } else if (exch.value >= 72 && exch.value <= 81) {
                 bal.innerHTML = `Siz C aldınız`
-            }else if(exch.value >=82 && exch.value<=91){
-                bal.innerHTML =`Siz B aldınız`
-            }else{
-                bal.innerHTML =`Siz A aldınız `
+            } else if (exch.value >= 82 && exch.value <= 91) {
+                bal.innerHTML = `Siz B aldınız`
+            } else {
+                bal.innerHTML = `Siz A aldınız `
             }
         }
-    </script> 
+    </script>
 </body>
 
 </html>
