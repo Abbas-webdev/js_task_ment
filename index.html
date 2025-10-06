@@ -111,6 +111,14 @@
             <button onclick="balyoxla()">yoxla</button>
             <h2 id="bal"></h2>
         </div>
+        <div>
+            <h1>Ən böyük ədədi hesablama</h1>
+            <input type="text" id="a">
+            <input type="text" id="b">
+            <input type="text" id="c">
+            <button onclick="hesabla()">yoxla</button>
+            <h2 id="bigmath"></h2>
+        </div>
     </div>
 
     <script>
@@ -120,6 +128,10 @@
         let yash2 = document.getElementById('yash2')
         let exch = document.getElementById('exch')
         let bal = document.getElementById('bal')
+        let a = document.getElementById('a')
+        let b = document.getElementById('b')
+        let c = document.getElementById('c')
+        let bigmath = document.getElementById('bigmath')
 
         function cuttek() {
             if (cut.value % 2 === 0) {
@@ -155,6 +167,21 @@
                 bal.innerHTML = `Siz B aldınız`
             } else {
                 bal.innerHTML = `Siz A aldınız `
+            }
+        }
+
+        function hesabla() {
+            let x = Number(a.value)
+            let y = Number(b.value)
+            let z = Number(c.value)
+            if (x > y && x > z) {
+                bigmath.innerHTML = `Ən böyük ədəd ${x}`
+            } else if (y > x && y > z) {
+                bigmath.innerHTML = `Ən böyük ədəd ${y}`
+            } else if (z > x && z > y) {
+                bigmath.innerHTML = `Ən böyük ədəd ${z}`
+            } else {
+                bigmath.innerHTML = `Bezi ədədler beraberdi `
             }
         }
     </script>
